@@ -16,10 +16,10 @@ namespace DbgShellUI
 
         private void openDump_Click(object sender, EventArgs e)
         {
-            string dbgPath = Settings.Default.DbgPath;
+            var dbgPath = Settings.Default.DbgPath;
             if (string.IsNullOrEmpty(dbgPath))
             {
-                MessageBox.Show("");
+                MessageBox.Show("DbgPath appears to be missing/blank in the settings");
                 return;
             }
             if (!(openFileDialog.ShowDialog() == DialogResult.OK))
@@ -70,13 +70,13 @@ namespace DbgShellUI
                 }
                 else if (cmd.StartsWith("Run "))
                 {
-                    string[] commands = cmd.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var commands = cmd.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     if (commands.Length < 3)
                     {
                         output.AddText("Invalid command." + cmd + "\n");
                         return;
                     }
-                    string[] prms = new string[commands.Length - 3];
+                    var prms = new string[commands.Length - 3];
                     if (prms.Length > 0)
                     {
                         Array.Copy(commands, 2, prms, 0, prms.Length);
@@ -102,7 +102,7 @@ namespace DbgShellUI
             try
             {
 
-                string cmd = "Run " + typeName + " " + methodName;
+                var cmd = $"Run {typeName} {methodName}";
                 if (parameters != null)
                 {
                     foreach (string param in parameters)
@@ -182,7 +182,7 @@ namespace DbgShellUI
 
         private void runScript_Click(object sender, EventArgs e)
         {
-            string[] prms = paramsTextBox.Text.Split(new string[] { " " }, StringSplitOptions.None);
+            var prms = paramsTextBox.Text.Split(new string[] { " " }, StringSplitOptions.None);
             RunScript(typesCombo.Text, methodsCombo.Text, prms);
         }
 
@@ -218,12 +218,12 @@ namespace DbgShellUI
             else if (linkCommand.StartsWith(RichTextBoxEx.ScriptPrefix))
             {
                 linkCommand = linkCommand.Substring(RichTextBoxEx.ScriptPrefix.Length);
-                string[] commands = linkCommand.Split(new string[] {RichTextBoxEx.Separator}, StringSplitOptions.None);
+                var commands = linkCommand.Split(new string[] {RichTextBoxEx.Separator}, StringSplitOptions.None);
                 if (commands.Length < 2)
                 {
                     return;
                 }
-                string[] prms = new string[commands.Length - 2];
+                var prms = new string[commands.Length - 2];
                 if (prms.Length > 0)
                 {
                     Array.Copy(commands, 2, prms, 0, prms.Length);
