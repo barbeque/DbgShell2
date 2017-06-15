@@ -26,22 +26,22 @@ namespace DbgShellUI
             {
                 return;
             }
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = Path.Combine(dbgPath, "cdb.exe");
-            start.CreateNoWindow = true;
-            start.RedirectStandardInput = true;
-            start.RedirectStandardOutput = true;
-            start.WorkingDirectory = dbgPath;
-            start.UseShellExecute = false;
-            start.Arguments = "-z \"" + openFileDialog.FileName + "\"";
+            ProcessStartInfo cdbInfo = new ProcessStartInfo();
+            cdbInfo.FileName = Path.Combine(dbgPath, "cdb.exe");
+            cdbInfo.CreateNoWindow = true;
+            cdbInfo.RedirectStandardInput = true;
+            cdbInfo.RedirectStandardOutput = true;
+            cdbInfo.WorkingDirectory = dbgPath;
+            cdbInfo.UseShellExecute = false;
+            cdbInfo.Arguments = "-z \"" + openFileDialog.FileName + "\"";
 
-            if(!File.Exists(start.FileName))
+            if(!File.Exists(cdbInfo.FileName))
             {
-                MessageBox.Show($"Can't find cdb at '{start.FileName}'. Consider changing the DbgPath setting to the place where cdb.exe lives on your system.");
+                MessageBox.Show($"Can't find cdb at '{cdbInfo.FileName}'. Consider changing the DbgPath setting to the place where cdb.exe lives on your system.");
                 return;
             }
 
-            Dbg.Init(Process.Start(start));
+            Dbg.Init(Process.Start(cdbInfo));
             Dbg.Execute(".echo hello"); //removes startup output
             foreach (string cmd in Settings.Default.Startup)
             {

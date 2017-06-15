@@ -67,6 +67,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.contextLabel = new System.Windows.Forms.Label();
             this.commandTextBox = new System.Windows.Forms.TextBox();
+            this.runCmdBtn = new System.Windows.Forms.Button();
             this.scriptRunPanel = new System.Windows.Forms.Panel();
             this.paramsTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dbgPanel = new System.Windows.Forms.Panel();
-            this.runCmdBtn = new System.Windows.Forms.Button();
             this.output = new DbgShellUI.RichTextBoxEx();
             this.menuStrip1.SuspendLayout();
             this.commandPanel.SuspendLayout();
@@ -88,12 +88,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.scriptsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(813, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1220, 35);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,32 +107,33 @@
             this.toolStripMenuItem1,
             this.exitMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // open32bitDumpMenuItem
             // 
             this.open32bitDumpMenuItem.Name = "open32bitDumpMenuItem";
-            this.open32bitDumpMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.open32bitDumpMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.open32bitDumpMenuItem.Size = new System.Drawing.Size(260, 30);
             this.open32bitDumpMenuItem.Text = "Open Dump";
             this.open32bitDumpMenuItem.Click += new System.EventHandler(this.openDump_Click);
             // 
             // clearOutputToolStripMenuItem
             // 
             this.clearOutputToolStripMenuItem.Name = "clearOutputToolStripMenuItem";
-            this.clearOutputToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.clearOutputToolStripMenuItem.Size = new System.Drawing.Size(197, 30);
             this.clearOutputToolStripMenuItem.Text = "Clear Output";
             this.clearOutputToolStripMenuItem.Click += new System.EventHandler(this.clearOutputToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(194, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(197, 30);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -140,20 +143,20 @@
             this.unloadMenuItem,
             this.reloadMenuItem});
             this.scriptsToolStripMenuItem.Name = "scriptsToolStripMenuItem";
-            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(77, 29);
             this.scriptsToolStripMenuItem.Text = "Scripts";
             // 
             // unloadMenuItem
             // 
             this.unloadMenuItem.Name = "unloadMenuItem";
-            this.unloadMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.unloadMenuItem.Size = new System.Drawing.Size(153, 30);
             this.unloadMenuItem.Text = "Unload";
             this.unloadMenuItem.Click += new System.EventHandler(this.unloadMenuItem_Click);
             // 
             // reloadMenuItem
             // 
             this.reloadMenuItem.Name = "reloadMenuItem";
-            this.reloadMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.reloadMenuItem.Size = new System.Drawing.Size(153, 30);
             this.reloadMenuItem.Text = "Reload";
             this.reloadMenuItem.Click += new System.EventHandler(this.reloadMenuItem_Click);
             // 
@@ -332,9 +335,10 @@
             this.commandPanel.Controls.Add(this.commandTextBox);
             this.commandPanel.Controls.Add(this.runCmdBtn);
             this.commandPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.commandPanel.Location = new System.Drawing.Point(0, 250);
+            this.commandPanel.Location = new System.Drawing.Point(0, 386);
+            this.commandPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.commandPanel.Name = "commandPanel";
-            this.commandPanel.Size = new System.Drawing.Size(813, 24);
+            this.commandPanel.Size = new System.Drawing.Size(1220, 37);
             this.commandPanel.TabIndex = 8;
             // 
             // panel1
@@ -342,32 +346,46 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.contextLabel);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(64, 20);
+            this.panel1.Size = new System.Drawing.Size(94, 29);
             this.panel1.TabIndex = 4;
             // 
             // contextLabel
             // 
             this.contextLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.contextLabel.Location = new System.Drawing.Point(2, 1);
+            this.contextLabel.Location = new System.Drawing.Point(3, 2);
+            this.contextLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.contextLabel.Name = "contextLabel";
-            this.contextLabel.Size = new System.Drawing.Size(55, 13);
+            this.contextLabel.Size = new System.Drawing.Size(82, 20);
             this.contextLabel.TabIndex = 0;
             this.contextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // commandTextBox
             // 
-            this.commandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.commandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.commandTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.commandTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.commandTextBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.commandTextBox.Location = new System.Drawing.Point(67, 2);
+            this.commandTextBox.Location = new System.Drawing.Point(100, 3);
+            this.commandTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.commandTextBox.Name = "commandTextBox";
-            this.commandTextBox.Size = new System.Drawing.Size(743, 20);
+            this.commandTextBox.Size = new System.Drawing.Size(1112, 26);
             this.commandTextBox.TabIndex = 2;
             this.commandTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commandTextBox_KeyDown);
+            // 
+            // runCmdBtn
+            // 
+            this.runCmdBtn.Location = new System.Drawing.Point(108, 12);
+            this.runCmdBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.runCmdBtn.Name = "runCmdBtn";
+            this.runCmdBtn.Size = new System.Drawing.Size(28, 15);
+            this.runCmdBtn.TabIndex = 5;
+            this.runCmdBtn.Text = "button1";
+            this.runCmdBtn.UseVisualStyleBackColor = true;
+            this.runCmdBtn.Click += new System.EventHandler(this.runCmdBtn_Click);
             // 
             // scriptRunPanel
             // 
@@ -380,34 +398,38 @@
             this.scriptRunPanel.Controls.Add(this.label1);
             this.scriptRunPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.scriptRunPanel.Location = new System.Drawing.Point(0, 0);
+            this.scriptRunPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.scriptRunPanel.Name = "scriptRunPanel";
-            this.scriptRunPanel.Size = new System.Drawing.Size(813, 30);
+            this.scriptRunPanel.Size = new System.Drawing.Size(1220, 46);
             this.scriptRunPanel.TabIndex = 1;
             // 
             // paramsTextBox
             // 
             this.paramsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.paramsTextBox.Location = new System.Drawing.Point(583, 3);
+            this.paramsTextBox.Location = new System.Drawing.Point(874, 5);
+            this.paramsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.paramsTextBox.Name = "paramsTextBox";
-            this.paramsTextBox.Size = new System.Drawing.Size(172, 20);
+            this.paramsTextBox.Size = new System.Drawing.Size(256, 26);
             this.paramsTextBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(535, 6);
+            this.label3.Location = new System.Drawing.Point(802, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Params";
             // 
             // runScript
             // 
             this.runScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.runScript.Location = new System.Drawing.Point(761, 2);
+            this.runScript.Location = new System.Drawing.Point(1142, 3);
+            this.runScript.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.runScript.Name = "runScript";
-            this.runScript.Size = new System.Drawing.Size(49, 23);
+            this.runScript.Size = new System.Drawing.Size(74, 35);
             this.runScript.TabIndex = 4;
             this.runScript.Text = "Run";
             this.runScript.UseVisualStyleBackColor = true;
@@ -415,21 +437,23 @@
             // 
             // methodsCombo
             // 
-            this.methodsCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.methodsCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.methodsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.methodsCombo.FormattingEnabled = true;
-            this.methodsCombo.Location = new System.Drawing.Point(360, 3);
+            this.methodsCombo.Location = new System.Drawing.Point(540, 5);
+            this.methodsCombo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.methodsCombo.Name = "methodsCombo";
-            this.methodsCombo.Size = new System.Drawing.Size(169, 21);
+            this.methodsCombo.Size = new System.Drawing.Size(252, 28);
             this.methodsCombo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(306, 6);
+            this.label2.Location = new System.Drawing.Point(459, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Methods";
             // 
@@ -437,18 +461,20 @@
             // 
             this.typesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typesCombo.FormattingEnabled = true;
-            this.typesCombo.Location = new System.Drawing.Point(47, 3);
+            this.typesCombo.Location = new System.Drawing.Point(70, 5);
+            this.typesCombo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.typesCombo.Name = "typesCombo";
-            this.typesCombo.Size = new System.Drawing.Size(253, 21);
+            this.typesCombo.Size = new System.Drawing.Size(378, 28);
             this.typesCombo.TabIndex = 1;
             this.typesCombo.SelectedIndexChanged += new System.EventHandler(this.typesCombo_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 6);
+            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Types";
             // 
@@ -462,30 +488,22 @@
             this.dbgPanel.Controls.Add(this.scriptRunPanel);
             this.dbgPanel.Controls.Add(this.commandPanel);
             this.dbgPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dbgPanel.Location = new System.Drawing.Point(0, 24);
+            this.dbgPanel.Location = new System.Drawing.Point(0, 35);
+            this.dbgPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgPanel.Name = "dbgPanel";
-            this.dbgPanel.Size = new System.Drawing.Size(813, 274);
+            this.dbgPanel.Size = new System.Drawing.Size(1220, 423);
             this.dbgPanel.TabIndex = 10;
             this.dbgPanel.Visible = false;
-            // 
-            // runCmdBtn
-            // 
-            this.runCmdBtn.Location = new System.Drawing.Point(72, 8);
-            this.runCmdBtn.Name = "runCmdBtn";
-            this.runCmdBtn.Size = new System.Drawing.Size(19, 10);
-            this.runCmdBtn.TabIndex = 5;
-            this.runCmdBtn.Text = "button1";
-            this.runCmdBtn.UseVisualStyleBackColor = true;
-            this.runCmdBtn.Click += new System.EventHandler(this.runCmdBtn_Click);
             // 
             // output
             // 
             this.output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.output.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.output.Location = new System.Drawing.Point(0, 30);
+            this.output.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.Location = new System.Drawing.Point(0, 46);
+            this.output.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.output.Name = "output";
             this.output.ReadOnly = true;
-            this.output.Size = new System.Drawing.Size(813, 220);
+            this.output.Size = new System.Drawing.Size(1220, 340);
             this.output.TabIndex = 9;
             this.output.Text = "";
             this.output.WordWrap = false;
@@ -494,12 +512,13 @@
             // MainForm
             // 
             this.AcceptButton = this.runCmdBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 298);
+            this.ClientSize = new System.Drawing.Size(1220, 458);
             this.Controls.Add(this.dbgPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Debug Shell";
             this.menuStrip1.ResumeLayout(false);
