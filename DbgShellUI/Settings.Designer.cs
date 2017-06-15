@@ -41,7 +41,7 @@ namespace DbgShellUI {
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>.symfix c:\mycache</string>
   <string>.reload</string>
-  <string>.load sos</string>
+  <string>.loadby sos clr</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Startup {
             get {

@@ -183,7 +183,17 @@ namespace DbgShellUI
         private void runScript_Click(object sender, EventArgs e)
         {
             var prms = paramsTextBox.Text.Split(new string[] { " " }, StringSplitOptions.None);
-            RunScript(typesCombo.Text, methodsCombo.Text, prms);
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                RunScript(typesCombo.Text, methodsCombo.Text, prms);
+            }
+            finally
+            {
+                this.Cursor = null;
+            }
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -194,11 +204,15 @@ namespace DbgShellUI
         private void unloadMenuItem_Click(object sender, EventArgs e)
         {
             ScriptsApi.Unload();
+
+            typesCombo.Items.Clear();
         }
 
         private void reloadMenuItem_Click(object sender, EventArgs e)
         {
             ScriptsApi.Load();
+
+            typesCombo.Items.Clear();
             typesCombo.Items.AddRange(ScriptsApi.GetTypes().ToArray());
         }
 

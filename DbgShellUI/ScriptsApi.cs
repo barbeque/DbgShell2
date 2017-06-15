@@ -1,11 +1,8 @@
-﻿using System;
+﻿using DbgShell;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.CodeDom.Compiler;
 using System.IO;
 using System.Reflection;
-using DbgShell;
 
 namespace DbgShellUI
 {

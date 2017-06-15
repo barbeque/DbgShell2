@@ -10,7 +10,7 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;.symfix c:\mycache&lt;/string&gt;
   &lt;string&gt;.reload&lt;/string&gt;
-  &lt;string&gt;.load sos&lt;/string&gt;
+  &lt;string&gt;.loadby sos clr&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
